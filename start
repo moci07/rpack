@@ -4,10 +4,10 @@
 _get_ziplink () {
     local regex
     regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "goodR" ]]
+    if [[ $UPSTREAM_REPO == "ruserbot" ]]
     then
         echo "aHR0cHM6Ly9naXRodWIuY29tL3NhbmR5MTcwOS9jYXR1c2VyYm90L2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
-    elif [[ $UPSTREAM_REPO == "badcat" ]]
+    elif [[ $UPSTREAM_REPO == "ruserbot" ]]
     then
         echo "aHR0cHM6Ly9naXRodWIuY29tL2ppc2FuMDkvY2F0dXNlcmJvdC9hcmNoaXZlL21hc3Rlci56aXA=" | base64 -d
     elif [[ $UPSTREAM_REPO =~ $regex ]]
@@ -16,7 +16,7 @@ _get_ziplink () {
         then
             echo "${UPSTREAM_REPO}/archive/${UPSTREAM_REPO_BRANCH}.zip"
         else
-            echo "${UPSTREAM_REPO}/archive/Ruserbot.zip"
+            echo "${UPSTREAM_REPO}/archive/ruserbot.zip"
         fi
     else
         echo "aHR0cHM6Ly9naXRodWIuY29tL3NhbmR5MTcwOS9jYXR1c2VyYm90L2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
@@ -27,10 +27,10 @@ _get_repolink () {
     local regex
     local rlink
     regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "goodR" ]]
+    if [[ $UPSTREAM_REPO == "ruserbot" ]]
     then
         rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL3NhbmR5MTcwOS9jYXR1c2VyYm90" | base64 -d`
-    elif [[ $UPSTREAM_REPO == "badcat" ]]
+    elif [[ $UPSTREAM_REPO == "ruserbot" ]]
     then
         rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL0ppc2FuMDkvY2F0dXNlcmJvdA==" | base64 -d`
     elif [[ $UPSTREAM_REPO =~ $regex ]]
@@ -52,7 +52,7 @@ _run_catpack_git() {
 import sys
 
 OFFICIAL_UPSTREAM_REPO = "https://github.com/moci07/rpack"
-ACTIVE_BRANCH_NAME = "Ruserbot"
+ACTIVE_BRANCH_NAME = "ruserbot"
 
 repo = Repo.init()
 origin = repo.create_remote("temponame", OFFICIAL_UPSTREAM_REPO)
@@ -66,7 +66,7 @@ _run_cat_git() {
     $(_run_python_code 'from git import Repo
 import sys
 OFFICIAL_UPSTREAM_REPO="'$repolink'"
-ACTIVE_BRANCH_NAME = "'$UPSTREAM_REPO_BRANCH'" or "Ruserbot"
+ACTIVE_BRANCH_NAME = "'$UPSTREAM_REPO_BRANCH'" or "ruserbot"
 repo = Repo.init()
 origin = repo.create_remote("temponame", OFFICIAL_UPSTREAM_REPO)
 origin.fetch()
@@ -76,7 +76,7 @@ repo.heads[ACTIVE_BRANCH_NAME].checkout(True) ')
 
 _set_bot () {
     local zippath
-    zippath="catuserbot.zip"
+    zippath="ruserbot.zip"
     echo "  Downloading source code ..."
     wget -q $(_get_ziplink) -O "$zippath"
     echo "  Unpacking Data ..."
@@ -91,7 +91,7 @@ _set_bot () {
     _run_cat_git
     python3 ../setup/updater.py ../requirements.txt requirements.txt
     chmod -R 755 bin
-    echo "    Starting Ruserbot    "
+    echo "    Starting ruserbot    "
     echo "
                         :'######:::::'###::::'########::::
                         '##... ##:::'## ##:::... ##..:::::
@@ -113,7 +113,7 @@ _set_bot () {
     . #######::. ######:: ########: ##:::. ##: ########::. #######::::: ##::::
     :.......::::......:::........::..:::::..::........::::.......::::::..:::::
     "
-    python3 -m Ruserbot
+    python3 -m ruserbot
 }
 
 _set_bot
