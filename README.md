@@ -5,7 +5,7 @@ This is just heroku support source
 Main source is here [main source](https://github.com/rimuru07/Ruserbot) fork and give star to that repo 
 
 ## Deploy
-[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://github.com/moci07/rpack)
+[![[![Deploy](https://telegra.ph/file/6fdc18d41c7c679d92192.jpg)](https://heroku.com/deploy?template=https://github.com/moci07/rpack.git)
 
 ## credits
    - [@midnightmadwalk](https://t.me/midnightmadwalk)
