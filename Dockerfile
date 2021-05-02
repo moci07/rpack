@@ -1,13 +1,13 @@
-FROM rimuru07/Ruserbot:alpine
+FROM rimuru07/ruserbot:alpine
 
 #clonning repo 
-RUN git clone https://github.com/rimuru07/Ruserbot.git /root/Ruserbot
+RUN git clone https://github.com/rimuru07/ruserbot.git /root/ruserbot
 #working directory 
-WORKDIR /root/Ruserbot
+WORKDIR /root/ruserbot
 
 # Install requirements
 RUN pip3 install -U -r requirements.txt
 
-ENV PATH="/home/Ruserbot/bin:$PATH"
+ENV PATH="/home/ruserbot/bin:$PATH"
 
-CMD ["python3","-m","Ruserbot"]
+CMD ["python3","-m","ruserbot"]
