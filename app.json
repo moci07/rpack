@@ -1,5 +1,5 @@
 {
-  "name": "Ruserbot",
+  "name": "ruserbot",
   "description": "A simple Telegram userbot based on Telethon . Maintained by Sandeep ",
   "logo": "https://telegra.ph/file/1e066038dd17b142e3e12.jpg",
   "keywords": [
@@ -57,12 +57,12 @@
     },
     "TZ": {
       "description": "Required for Correct Time on autopic/get time. Know your timezone from http://www.timezoneconverter.com/cgi-bin/findzone.tzc",
-      "value": "Asia/Kolkata",
+      "value": "Asia/Jakarta",
       "required": false
     },
     "UPSTREAM_REPO": {
       "description": "Use either goodcat or badcat .if you need custom deploy then type your git repo link",
-      "value": "goodR",
+      "value": "ruserbot",
       "required": false
     }
   },
